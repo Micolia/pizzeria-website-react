@@ -1,0 +1,26 @@
+.navigazione {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+button {
+    padding: 7px 15px;
+    margin: 15px;
+    border-radius: 20px;
+    border: 2px solid rgb(255, 230, 0);
+}
+
+.bttleft, .bttright {
+    margin: 5px 20px;
+}
+
+.btnfill {
+    background-color: rgb(255, 230, 0);
+    color: black;
+}
+
+.btnempty {
+    background-color: black;
+    color:rgb(255, 230, 0) ;
+}
