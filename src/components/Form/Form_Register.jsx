@@ -22,6 +22,7 @@ const FormRegister = () => {
     })
 
     const [errorReg, setErrorReg] = useState(false)
+    const [isSubmitted, setIsSubmitted] = useState(false)
 
     //comuncia che sono 3 inputs -- (e)vento
     const handleChange = (e) => {
@@ -29,20 +30,18 @@ const FormRegister = () => {
     }
 
     const handleResult = () => {
+
+        setIsSubmitted(true)
+
         if (!registration.nombre || !registration.password || !registration.passwordConfirmation) {
             setErrorReg(true)
             return
             }
-            //Eliminar mensaje de error
-            setErrorReg(false)
-
 
         if (registration.password.length < 6) {
             setErrorReg(true)
             return
             }
-
-            setErrorReg(false)
 
         if (registration.password !== registration.passwordConfirmation) {
             setErrorReg(true)
@@ -56,7 +55,7 @@ const FormRegister = () => {
     return (
         <div className='formRegistration'>
         <h2>Crear cuenta:</h2>
-        {errorReg ? <p className="error">Hay un error en los datos</p> : <p className="success">Los datos son correctos</p>}
+        {isSubmitted && (errorReg ? <p className="error">Hay un error en los datos</p> : <p className="success">Los datos son correctos</p>)}
         <input
         type= 'text'
         placeholder= 'Email'

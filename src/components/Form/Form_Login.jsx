@@ -10,18 +10,20 @@ const FormLogin = () => {
     })
 
     const [error, setError] = useState(false)
+    const [isSubmitted, setIsSubmitted] = useState(false)
 
     const handleChange = (e) => {
         setLogin({ ... login, [e.target.name]: e.target.value })
     }
 
     const handleResult = () => {
+
+        setIsSubmitted(true)
+
         if (!login.nombre || !login.password) {
             setError(true)
             return
             }
-            //Eliminar mensaje de error
-            setError(false)
 
         if (login.password.length < 6) {
             setError(true)
@@ -35,7 +37,7 @@ const FormLogin = () => {
 
         <div className='formLogin'>
         <h2>Iniciar sesión:</h2>
-        {error ? <p className="error">Hay un error en los datos</p> : <p className="success">Los datos son correctos</p>}
+        {isSubmitted && (error ? <p className="error">Hay un error en los datos</p> : <p className="success">Los datos son correctos</p>)}
         <input
         type= 'text'
         placeholder= 'Email'
