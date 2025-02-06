@@ -1,0 +1,7 @@
+.forms {
+    display: flex;
+    gap: 30px;
+    margin: 50px;
+    align-items: flex-start;
+    justify-content: center;
+}

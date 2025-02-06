@@ -1,0 +1,42 @@
+.formRegistration, .formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: black;
+    border-radius: 15px;
+    border: 5px solid rgb(255, 230, 0);
+    padding: 30px;
+    width: 400px;
+}
+
+h2 {
+    color: white;
+}
+
+input {
+    border-radius: 15px;
+    padding: 10px 20px;
+    width: 90%;
+}
+
+.btnform {
+    background-color: rgb(255, 230, 0);
+    color: black;
+    margin: 15px 0 0 0;
+    width: 30%;
+}
+
+.error, .success {
+    color: black;
+    border-radius: 15px;
+    padding: 10px 20px;
+    width: 90%;
+}
+
+.error {
+    background-color: red;
+}
+
+.success {
+    background-color: rgb(2, 255, 2);
+}
