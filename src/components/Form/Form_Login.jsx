@@ -9,7 +9,7 @@ const FormLogin = () => {
         password: ''
     })
 
-    const [error, setError] = useState(false)
+    const [error, setError] = useState('')
     const [isSubmitted, setIsSubmitted] = useState(false)
 
     const handleChange = (e) => {
@@ -21,25 +21,25 @@ const FormLogin = () => {
         setIsSubmitted(true)
 
         if (!login.nombre || !login.password) {
-            setError(true)
+            setError("Debes ingresar todos los datos")
             return
             }
 
         if (login.password.length < 6) {
-            setError(true)
+            setError("La contraseña debe tener al menos 6 caracteres")
             return
             }
 
-            setError(false)
+            setError('')
     }
 
     return (
 
         <div className='formLogin'>
         <h2>Iniciar sesión:</h2>
-        {isSubmitted && (error ? <p className="error">Hay un error en los datos</p> : <p className="success">Los datos son correctos</p>)}
+        {isSubmitted && (error ? <p className="error">{error}</p> : <p className="success">Los datos son correctos</p>)}
         <input
-        type= 'text'
+        type= 'email'
         placeholder= 'Email'
         value={login.nombre}
         onChange={handleChange}
@@ -47,7 +47,7 @@ const FormLogin = () => {
         />
 
         <input
-        type= 'text'
+        type= 'password'
         placeholder= 'Contraseña'
         value={login.password}
         onChange={handleChange}

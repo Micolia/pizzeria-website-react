@@ -21,7 +21,7 @@ const FormRegister = () => {
         passwordConfirmation: ''
     })
 
-    const [errorReg, setErrorReg] = useState(false)
+    const [errorReg, setErrorReg] = useState('')
     const [isSubmitted, setIsSubmitted] = useState(false)
 
     //comuncia che sono 3 inputs -- (e)vento
@@ -34,30 +34,30 @@ const FormRegister = () => {
         setIsSubmitted(true)
 
         if (!registration.nombre || !registration.password || !registration.passwordConfirmation) {
-            setErrorReg(true)
+            setErrorReg("Debes ingresar todos los datos")
             return
             }
 
         if (registration.password.length < 6) {
-            setErrorReg(true)
+            setErrorReg("La contraseña debe tener al menos 6 caracteres")
             return
             }
 
         if (registration.password !== registration.passwordConfirmation) {
-            setErrorReg(true)
+            setErrorReg("Las contraseñas no coinciden")
             return
             }
 
-        setErrorReg(false)
+        setErrorReg('')
 
     }
 
     return (
         <div className='formRegistration'>
         <h2>Crear cuenta:</h2>
-        {isSubmitted && (errorReg ? <p className="error">Hay un error en los datos</p> : <p className="success">Los datos son correctos</p>)}
+        {isSubmitted && (errorReg ? <p className="error">{errorReg}</p> : <p className="success">Los datos son correctos</p>)}
         <input
-        type= 'text'
+        type= 'email'
         placeholder= 'Email'
         value={registration.nombre}
         onChange={handleChange}
@@ -65,7 +65,7 @@ const FormRegister = () => {
         />
 
         <input
-        type= 'text'
+        type= 'password'
         placeholder= 'Contraseña'
         value={registration.password}
         onChange={handleChange}
@@ -73,7 +73,7 @@ const FormRegister = () => {
         />
 
         <input
-        type= 'text'
+        type= 'password'
         placeholder= 'Confirmar contraseña'
         value={registration.passwordConfirmation}
         onChange={handleChange}
