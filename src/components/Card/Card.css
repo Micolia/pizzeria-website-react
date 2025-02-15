@@ -30,26 +30,6 @@
     color: black;
 }
 
-/*
-.buttons {
-    display: flex;
-    gap: 30px;
-    margin: 30px 0 10px 0;
-}
-
-.button1, .button2 {
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: 2px solid black;
-    margin: 0;
-}
-
-.button1 {
-    background-color: white;
-}
-
-*/
-
 .button2 {
     padding: 10px 20px;
     border-radius: 20px;
