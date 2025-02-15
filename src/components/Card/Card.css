@@ -5,7 +5,7 @@
     border: 1px solid #d3d3d3;
     border-radius: 15px;
     margin: 50px 20px;
-    padding: 15px;
+    padding: 20px;
 }
 
 .pizzaCard img {
@@ -22,7 +22,7 @@
 
 .pizzaCard h3 {
     border-top: 1px solid #d3d3d3;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 .pizzaCard p {
@@ -30,6 +30,7 @@
     color: black;
 }
 
+/*
 .buttons {
     display: flex;
     gap: 30px;
@@ -47,7 +48,17 @@
     background-color: white;
 }
 
+*/
+
 .button2 {
-    background-color: black;
-    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border:0;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin: 25px 0 10px 0;
+}
+
+.ulpizzacard {
+    margin: 20px;
 }
