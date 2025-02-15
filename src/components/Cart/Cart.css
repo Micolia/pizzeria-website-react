@@ -1,4 +1,57 @@
-.formlista, .ulcarrito {
+.carrito {
     background-color: rgb(255, 230, 0);
-    color:black;
+    color:rgb(0, 0, 0);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.carrito h2 {
+    color: black;
+}
+
+.totalprice {
+    margin-top: 30px;
+}
+
+.cardCarrito {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 150px;
+    border-bottom: 3px solid black;
+    width: 50%;
+}
+
+
+.mainInfoCarrito, .detailsCarrito {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.mainInfoCarrito {
+    justify-content: flex-start;
+}
+
+.detailsCarrito {
+    justify-content: flex-end;
+}
+
+.mainInfoCarrito img {
+    height: 100px;
+    width: auto;
+    border-radius: 20px;
+    margin: 20px 10px;
+}
+
+.buttonCartRemove, .buttonCartAdd {
+    color: rgb(255, 230, 0);
+    background-color: black;
+    margin: 0;
+    padding: 5px 10px;
 }

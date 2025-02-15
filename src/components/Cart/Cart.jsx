@@ -1,82 +1,69 @@
 import './Cart.css'
-import { useState } from "react";
+import { useState } from 'react'
+import { pizzaCart } from '../../data/pizzas'
 
-const initialLista = ['pan', 'queso', 'jamon' , 'cafe']
+const Cart = () => {
+    const [cart, setCart] = useState(pizzaCart)
+    const calcTotal = () => {
+        let total = 0;
+        cart.forEach((item) => {
+            total += item.price * item.count
+        })
+        return total
+    }
 
-const Form = () => {
-    const [lista, setLista] = useState (initialLista)  //initialLista qui serve perché il valore dell'input venga aggiunto alla lista
-    const [text, setText] = useState ('') //per catturare valore input
+    const aumentarCantidad = (id) => {
+      const newCart = cart.map((item) => {
+      if (item.id === id) {
+        return {
+            ...item,
+            count: item.count +1
+        }
+        }
+        return item
+        })
+        setCart(newCart)
+    }
 
-    const addProduct = (e) => {
-        e.preventDefault ()
-        setLista([...lista, text]) //allo stato della lista aggiungo input (text), formato string --> mi serve come array [] + ...riprendo lista esistente e aggiungo nuovo valore input (senza ... si cancella)
-        console.log(lista)
+    const disminuirCantidad = (id) => {
+        const newCart = cart.map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              count: item.count > 0 ? item.count - 1 : 0
+            }
+          }
+          return item
+        })
+        setCart(newCart)
     }
 
     return (
-        <>
-        <form className='formlista' onSubmit={addProduct}> {/* non usare onClick in button perche manda a altra pagina*/}
-        <input
-        type='text'
-        value={text}
-        onChange={(e) => setText(e.target.value)} //funzione per cambiarte lo stato iniziale
-        />
+    <div className='carrito'>
+        <h2>Detalles de tu pedido:</h2>
+        {cart.map((item) => (
 
-        <button type='submit'>Agregar</button>
-        </form>
+        <div className='cardCarrito' key={item.id}>
 
-        <ul className='ulcarrito'>
-            {lista.map((producto) => <li key={producto}>{producto}</li>)}
-        </ul>
-        </>
+        <div className='mainInfoCarrito'>
+        <img src={item.img} className="imgPizzaCart" alt={item.name}/>
+        <h3>{item.name}</h3>
+        </div>
+
+        <div className='detailsCarrito'>
+        <p>Precio: {item.price} $</p>
+        <button className='buttonCartRemove' onClick={()=>disminuirCantidad(item.id)}>-</button>
+        <span>{item.count}</span>
+        <button className='buttonCartAdd' onClick={()=>aumentarCantidad(item.id)}>+</button>
+        </div>
+        </div>
+
+        ))}
+
+        <h2 className='totalprice'>Total: {calcTotal()} $</h2>
+    </div>
+
     )
 }
 
-export default Form
-
-
-/*
-const productos = ['Producto 1', 'Producto 2', 'Producto 3']
-
-VERSIONE 1 (non conviene quando hai tanti prodotti perché manuale)
-
-const App () => {
-  return (
-  <>
-  <ul>
-  <li>{productos[0]}</li>
-  <li>{productos[1]}</li>
-  <li>{productos[2]}</li>
-  </ul>
-  </>
-
-  )}
-
-FOR EACH modifica arreglo original (itera solo un arreglo --> una funcion para cada elemento)
-productos.forEach(productos => console.log(procuctos))
-
-MAP estrae array nuevo
-const productos = productos.map(producto)
-
-VERSIONE 2 - (con una linea di codice puoi estrarre migliaia di prodotti) - usare key come id unico o non funziona {producto.id}                                                               }
-
-const App () => {
-  return (
-  <>
-  <ul>
-  {productos.map ((producto)=> <li key={producto}>{producto}</li>)}
-  </ul>
-  </>
-
-)}
-
-SE VOGLIO AGGIUNGERE STYLE
-
-const colors = [{
-id: 1,
-color:red
-}]
-
-{colors.map ((color)=> <li key={color.id} style=>{{color}}</li>)}
-*/
-
+export default Cart

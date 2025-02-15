@@ -3,7 +3,7 @@ import Home from './components/Home/Home'
 import Footer from './components/Footer/Footer'
 import FormRegister from './components/Form/Form_Register'
 import FormLogin from './components/Form/Form_Login'
-import Form from './components/Cart/Cart'
+import Cart from './components/Cart/Cart'
 
 import './App.css'
 
@@ -12,7 +12,7 @@ const App =() => {
     <>
     <Navbar />
     <Home />
-    <Form />
+    <Cart />
     <div className='forms'>
     <FormRegister />
     <FormLogin />
