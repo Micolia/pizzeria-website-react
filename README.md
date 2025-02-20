@@ -15,3 +15,7 @@ The page has the following sections:
 
 # Preview
 ![Website Preview](src/assets/img/preview.png)
+
+![Website Preview](src/assets/img/preview_forms.png)
+
+![Website Preview](src/assets/img/preview_cart.png)
