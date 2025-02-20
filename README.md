@@ -14,8 +14,14 @@ The page has the following sections:
 - **Footer**
 
 # Preview
+## Home
+
 ![Website Preview](src/assets/img/preview.png)
 
+## Forms
+
 ![Website Preview](src/assets/img/preview_forms.png)
+
+## Cart
 
 ![Website Preview](src/assets/img/preview_cart.png)
