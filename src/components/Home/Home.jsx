@@ -1,4 +1,50 @@
-//VERSIONE 2
+//VERSIONE 3 DATA API
+
+import { useEffect, useState } from "react"
+import Header from '../Header/Header'
+import './Home.css'
+
+const Home = () => {
+  const [info, setInfo] = useState([])
+
+  const getApi = async () => {
+    try {
+    const res = await fetch('http://localhost:5000/api/pizzas')
+    const data = await res.json()
+    setInfo(data)
+
+  } catch (error) {
+    console.log(error.message)
+  }
+  }
+
+  useEffect(() => {
+    getApi()
+  }, [])
+
+  return (
+    <>
+    <Header />
+
+    <div className="cards">
+      {info.map((pizza) => (
+        <div key={pizza.id} className="card">
+          <img src={pizza.img} alt={pizza.name} />
+          <h2>{pizza.name}</h2>
+          <p>{pizza.desc}</p>
+          <div className="pizzaprice"><h3>Precio:</h3><h3> ${pizza.price}</h3></div>
+          <h3>Ingredientes:</h3>
+          <p>{pizza.ingredients.join(", ")}</p>
+        </div>
+      ))}
+    </div>
+    </>
+  )
+}
+
+export default Home
+
+/*VERSIONE 2 DATA EXTERN
 
 import Card from '../Card/Card'
 import Header from '../Header/Header'
@@ -23,9 +69,9 @@ return (
 )
 }
 
-export default Home
+export default Home  */
 
-/* VERSIONE 1:
+/* VERSIONE 1 DATA MANUALE
 
 const Home =() => {
   return(
