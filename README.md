@@ -16,12 +16,12 @@ The page has the following sections:
 # Preview
 ## Home
 
-![Website Preview](src/assets/img/preview.png)
+![Website Preview](./frontend/src/assets/img/preview.png)
 
 ## Forms
 
-![Website Preview](src/assets/img/preview_forms.png)
+![Website Preview](./frontend/src/assets/img/preview_forms.png)
 
 ## Cart
 
-![Website Preview](src/assets/img/preview_cart.png)
+![Website Preview](./frontend/src/assets/img/preview_cart.png)
