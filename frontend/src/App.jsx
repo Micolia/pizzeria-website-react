@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer'
 import FormRegister from './components/Form/Form_Register'
 import FormLogin from './components/Form/Form_Login'
 import Cart from './components/Cart/Cart'
+//import Pizza from './components/Pizza/pizza'
 
 import './App.css'
 
@@ -12,6 +13,7 @@ const App =() => {
     <>
     <Navbar />
     <Home />
+    {/*<Pizza />*/}
     <Cart />
     <div className='forms'>
     <FormRegister />
@@ -20,6 +22,6 @@ const App =() => {
     <Footer />
    </>
   )
-  }
+}
 
 export default App

@@ -32,6 +32,7 @@ const Pizza = () => {
         </div>
         <h3>Ingredienti:</h3>
         <p>{info.ingredients.join(", ")}</p>
+        <button className='button2'>Añadir al carrito</button>
       </div>
   )
 }

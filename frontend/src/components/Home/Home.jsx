@@ -35,6 +35,7 @@ const Home = () => {
           <div className="pizzaprice"><h3>Precio:</h3><h3> ${pizza.price}</h3></div>
           <h3>Ingredientes:</h3>
           <p>{pizza.ingredients.join(", ")}</p>
+          <button className='button2'>Añadir al carrito</button>
         </div>
       ))}
     </div>
