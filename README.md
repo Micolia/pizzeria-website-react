@@ -31,6 +31,5 @@ The page has the following sections:
 5) **Footer**
 
 # Preview
-## Home
 
 ![Website Preview](./frontend/src/assets/img/preview.png)
