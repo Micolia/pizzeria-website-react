@@ -4,7 +4,7 @@ import Footer from './components/Footer/Footer'
 import FormRegister from './components/Form/Form_Register'
 import FormLogin from './components/Form/Form_Login'
 import Cart from './components/Cart/Cart'
-//import Pizza from './components/Pizza/pizza'
+//import Pizza from './components/Pizza/Pizza'
 
 import './App.css'
 
