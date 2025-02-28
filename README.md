@@ -30,6 +30,30 @@ The website has the following sections and pages:
 
 5) **Footer**
 
+## How to Run the Project
+
+- **Clone the repository:**
+   git clone [https://github.com/Micolia/pizzeria-website-react](https://github.com/Micolia/pizzeria-website-react)
+
+
+- **Backend:**
+    - Navigate to the backend folder
+
+     - Install dependencies: **npm install**
+
+     - Run the backend: **npm start**
+
+
+- **Frontend:**
+    - Navigate to the frontend folder
+
+    - Install dependencies: **npm install**
+
+    - Start the server: **npm run dev**
+
+
+
+
 # Preview
 
 ![Website Preview](./frontend/src/assets/img/preview.png)
