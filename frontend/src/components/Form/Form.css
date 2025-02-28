@@ -1,3 +1,11 @@
+.blockForm {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top:50px;
+    height: 100vh;
+}
+
 .formRegistration, .formLogin {
     display: flex;
     flex-direction: column;

@@ -51,34 +51,36 @@ const FormRegister = () => {
   }
 
   return (
-    <div className='formRegistration'>
-      <h2>Crear cuenta:</h2>
-      {isSubmitted && (errorReg ? <p className='error'>{errorReg}</p> : <p className='success'>Los datos son correctos</p>)}
-      <input
-        type='email'
-        placeholder='Email'
-        value={registration.nombre}
-        onChange={handleChange}
-        name='nombre'
-      />
+    <div className='blockForm'>
+      <div className='formRegistration'>
+        <h2>Crear cuenta:</h2>
+        {isSubmitted && (errorReg ? <p className='error'>{errorReg}</p> : <p className='success'>Los datos son correctos</p>)}
+        <input
+          type='email'
+          placeholder='Email'
+          value={registration.nombre}
+          onChange={handleChange}
+          name='nombre'
+        />
 
-      <input
-        type='password'
-        placeholder='Contraseña'
-        value={registration.password}
-        onChange={handleChange}
-        name='password'
-      />
+        <input
+          type='password'
+          placeholder='Contraseña'
+          value={registration.password}
+          onChange={handleChange}
+          name='password'
+        />
 
-      <input
-        type='password'
-        placeholder='Confirmar contraseña'
-        value={registration.passwordConfirmation}
-        onChange={handleChange}
-        name='passwordConfirmation'
-      />
+        <input
+          type='password'
+          placeholder='Confirmar contraseña'
+          value={registration.passwordConfirmation}
+          onChange={handleChange}
+          name='passwordConfirmation'
+        />
 
-      <button className='btnform' onClick={handleResult}>Registrate</button>
+        <button className='btnform' onClick={handleResult}>Registrate</button>
+      </div>
     </div>
 
   )
