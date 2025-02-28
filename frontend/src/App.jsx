@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
+// import Navbar from './components/Navbar/Navbar'
+// import Footer from './components/Footer/Footer'
 import HomePage from './views/HomePage'
 import CartPage from './views/CartPage'
 import LoginPage from './views/LoginPage'
@@ -20,7 +20,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route path='/home' element={<HomePage />} />
           <Route path='/cart' element={<CartPage />} />
@@ -39,7 +39,7 @@ const App = () => {
     <FormRegister />
     <FormLogin />
     </div> */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
