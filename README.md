@@ -1,7 +1,7 @@
 # Pizzeria Website
 This project is a static website for a pizzeria, built using React.
 
-# Description
+## Description
 The website has the following sections and pages:
 
 1) **Navbar**:
@@ -54,6 +54,6 @@ The website has the following sections and pages:
 
 
 
-# Preview
+## Preview
 
 ![Website Preview](./frontend/src/assets/img/preview.png)
