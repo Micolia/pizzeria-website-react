@@ -1,26 +1,29 @@
+import { BrowserRouter } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home'
 import Footer from './components/Footer/Footer'
-import FormRegister from './components/Form/Form_Register'
-import FormLogin from './components/Form/Form_Login'
-import Cart from './components/Cart/Cart'
-//import Pizza from './components/Pizza/Pizza'
+// import FormRegister from './components/Form/Form_Register'
+// import FormLogin from './components/Form/Form_Login'
+// import Cart from './components/Cart/Cart'
+// import Pizza from './components/Pizza/Pizza'
 
 import './App.css'
 
-const App =() => {
-  return(
+const App = () => {
+  return (
     <>
-    <Navbar />
-    <Home />
-    {/*<Pizza />*/}
-    <Cart />
-    <div className='forms'>
+      <BrowserRouter>
+        <Navbar />
+      </BrowserRouter>
+      <Home />
+      {/* <Pizza /> */}
+      {/* <Cart /> */}
+      {/* <div className='forms'>
     <FormRegister />
     <FormLogin />
-    </div>
-    <Footer />
-   </>
+    </div> */}
+      <Footer />
+    </>
   )
 }
 
