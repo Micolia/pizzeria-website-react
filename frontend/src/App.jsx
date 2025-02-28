@@ -29,6 +29,7 @@ const App = () => {
           <Route path='/pizza/p001' element={<PizzaPage />} />
           <Route path='/profile' element={<ProfilePage />} />
           <Route path='*' element={<NotFoundPage />} />
+          <Route path='/404' element={<NotFoundPage />} />
 
         </Routes>
       </BrowserRouter>
