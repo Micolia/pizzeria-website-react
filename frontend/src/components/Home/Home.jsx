@@ -29,7 +29,7 @@ const Home = () => {
         {info.map((pizza) => (
           <div key={pizza.id} className='card'>
             <img src={pizza.img} alt={pizza.name} />
-            <h2>{pizza.name}</h2>
+            <h2>{pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)}</h2>
             <p>{pizza.desc}</p>
             <div className='pizzaprice'><h3>Precio:</h3><h3> ${pizza.price}</h3></div>
             <h3>Ingredientes:</h3>
