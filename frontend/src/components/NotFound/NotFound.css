@@ -1,0 +1,28 @@
+.notfoundblock {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100vh;
+    background-image: url('../../assets/img/sadpizza.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+.home-button {
+    padding: 7px 15px;
+    margin: 15px;
+    border-radius: 20px;
+    border: 2px solid rgb(255, 230, 0);
+    background-color: black;
+    background-color: rgb(255, 230, 0);
+    color: black;
+}
+
+.home-button:hover {
+    background-color: black;
+    color: rgb(255, 230, 0);
+}
