@@ -22,13 +22,13 @@ const App = () => {
       <BrowserRouter>
         {/* <Navbar /> */}
         <Routes>
-          <Route path='/home' element={<HomePage />} />
+          <Route path='/' element={<HomePage />} />
           <Route path='/cart' element={<CartPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/pizza/p001' element={<PizzaPage />} />
           <Route path='/profile' element={<ProfilePage />} />
-          <Route path='/404' element={<NotFoundPage />} />
+          <Route path='*' element={<NotFoundPage />} />
 
         </Routes>
       </BrowserRouter>

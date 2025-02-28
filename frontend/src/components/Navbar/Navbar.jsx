@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className='navigazione'>
       <div className='bttleft'>
-        <Link to='/home'><button className='btnfill'>Home</button></Link>
+        <Link to='/'><button className='btnfill'>Home</button></Link>
         {token
           ? (
             <>
