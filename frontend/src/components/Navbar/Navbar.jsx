@@ -1,9 +1,12 @@
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 
 const Navbar = () => {
   const token = false
-  const total = 25000
+  const { cart } = useContext(CartContext)
+  const total = cart.reduce((sum, item) => sum + item.price * item.count, 0)
 
   return (
     <div className='navigazione'>

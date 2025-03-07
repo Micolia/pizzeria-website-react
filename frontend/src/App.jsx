@@ -8,6 +8,7 @@ import RegisterPage from './views/RegisterPage'
 import PizzaPage from './views/PizzaPage'
 import ProfilePage from './views/ProfilePage'
 import NotFoundPage from './views/NotFoundPage'
+import CartProvider from './context/CartContext'
 // import Home from './components/Home/Home'
 // import FormRegister from './components/Form/Form_Register'
 // import FormLogin from './components/Form/Form_Login'
@@ -18,7 +19,7 @@ import './App.css'
 
 const App = () => {
   return (
-    <>
+    <CartProvider>
       <BrowserRouter>
         {/* <Navbar /> */}
         <Routes>
@@ -41,7 +42,7 @@ const App = () => {
     <FormLogin />
     </div> */}
       {/* <Footer /> */}
-    </>
+    </CartProvider>
   )
 }
 
