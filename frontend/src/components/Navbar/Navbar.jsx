@@ -2,10 +2,11 @@ import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
+import { UserContext } from '../../context/UserContext'
 
 const Navbar = () => {
-  const token = false
   const { cart } = useContext(CartContext)
+  const { token, logout } = useContext(UserContext)
   const total = cart.reduce((sum, item) => sum + item.price * item.count, 0)
 
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
           ? (
             <>
               <Link to='/profile'><button className='btnempty'>Profile</button></Link>
-              <button className='btnempty'>Logout</button>
+              <button className='btnempty' onClick={logout}>Logout</button>
             </>
             )
           : (

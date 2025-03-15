@@ -1,12 +1,8 @@
 import Profile from '../components/Profile/Profile'
-import Navbar from '../components/Navbar/Navbar'
 
 const ProfilePage = () => {
   return (
-    <>
-      <Navbar />
-      <Profile />
-    </>
+    <Profile />
   )
 }
 

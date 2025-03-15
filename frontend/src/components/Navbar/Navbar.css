@@ -18,9 +18,22 @@ button {
 .btnfill {
     background-color: rgb(255, 230, 0);
     color: black;
+    transition: all 0.3s ease;
+}
+
+.btnfill:hover {
+    transform: scale(1.1);
 }
 
 .btnempty {
     background-color: black;
     color:rgb(255, 230, 0) ;
+    transition: all 0.3s ease;
 }
+
+.btnempty:hover {
+    background-color: rgb(255, 230, 0);
+    color:black ;
+    transform: scale(1.1);
+}
+
