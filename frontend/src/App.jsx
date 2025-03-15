@@ -10,6 +10,7 @@ import ProfilePage from './views/ProfilePage'
 import NotFoundPage from './views/NotFoundPage'
 import CartProvider from './context/CartContext'
 import UserProvider from './context/UserContext'
+import ProtectedRoute from './components/ProtectedRoute'
 // import Home from './components/Home/Home'
 // import FormRegister from './components/Form/Form_Register'
 // import FormLogin from './components/Form/Form_Login'
@@ -30,7 +31,16 @@ const App = () => {
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/pizza/p001' element={<PizzaPage />} />
-            <Route path='/profile' element={<ProfilePage />} />
+
+            <Route
+              path='/profile'
+              element={
+                <ProtectedRoute>
+                  <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
+
             <Route path='*' element={<NotFoundPage />} />
             <Route path='/404' element={<NotFoundPage />} />
             <Route path='/pizza/:id' element={<PizzaPage />} />
