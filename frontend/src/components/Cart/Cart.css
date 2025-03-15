@@ -26,7 +26,6 @@
     width: 50%;
 }
 
-
 .mainInfoCarrito, .detailsCarrito {
     display: flex;
     flex-direction: row;
@@ -54,4 +53,15 @@
     background-color: black;
     margin: 0;
     padding: 5px 10px;
+}
+
+.btnPay {
+    color: rgb(255, 230, 0);
+    background-color: black;
+    padding: 10px 30px;
+    transition: all 0.3s ease;
+}
+
+.btnPay:hover {
+    transform: scale(1.1);
 }

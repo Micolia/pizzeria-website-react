@@ -2,9 +2,11 @@ import './Cart.css'
 import { useState, useContext } from 'react'
 // import { pizzaCart } from '../../data/pizzas'
 import { CartContext } from '../../context/CartContext'
+import { UserContext } from '../../context/UserContext'
 
 const Cart = () => {
   const { cart, increase, decrease } = useContext(CartContext)
+  const { token } = useContext(UserContext)
 
   const calcTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.count, 0)
@@ -40,9 +42,18 @@ const Cart = () => {
           )}
 
       <h2 className='totalprice'>Total: {calcTotal()} $</h2>
+
+      {token && (
+        <button className='btnPay'>
+          Pagar
+        </button>
+      )}
     </div>
   )
 }
+
+export default Cart
+
 /* OLD VERSION
 const Cart = () => {
   const [cart, setCart] = useState(pizzaCart)
@@ -107,5 +118,3 @@ const Cart = () => {
 
   )
 } */
-
-export default Cart
