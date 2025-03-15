@@ -6,7 +6,7 @@ The website has the following sections and pages:
 
 1) **Navbar**:
   - A "Home" button.
-  - A "Total" button.
+  - A "Total" button showing the total amount to be paid (based on products added to the cart).
   - "Login" and "Register" buttons if the user is not logged in, "Profile" and "Logout" buttons if the user is logged in.
 
 2) **Main Page**:
@@ -20,6 +20,7 @@ The website has the following sections and pages:
 - The user can see the items added to the cart.
 - Each item in the cart displays the product details (image, name, price), along with buttons to increase or decrease the quantity of the item.
 - The total section at the bottom of the cart dynamically calculates and displays the total price based on the prices and quantities of the items in the cart.
+- If users are logged out they cannot see the button to pay.
 
 4) **Forms - Login & Register Page**:
 - Contains two forms, one for creating an account and one for logging in.
