@@ -4,10 +4,12 @@ import { useEffect, useState, useContext } from 'react'
 import Header from '../Header/Header'
 import './Home.css'
 import { CartContext } from '../../context/CartContext'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
   const [info, setInfo] = useState([])
   const { addToCart } = useContext(CartContext)
+  const navigate = useNavigate()
 
   const getApi = async () => {
     try {
@@ -32,11 +34,14 @@ const Home = () => {
           <div key={pizza.id} className='card'>
             <img src={pizza.img} alt={pizza.name} />
             <h2>{pizza.name.charAt(0).toUpperCase() + pizza.name.slice(1)}</h2>
-            <p>{pizza.desc}</p>
+            {/* <p>{pizza.desc}</p> */}
             <div className='pizzaprice'><h3>Precio:</h3><h3> ${pizza.price}</h3></div>
             <h3>Ingredientes:</h3>
             <p>{pizza.ingredients.join(', ')}</p>
-            <button className='button2' onClick={() => addToCart(pizza)}>Añadir al carrito</button>
+            <div className='buttonshome'>
+              <button className='button1' onClick={() => navigate(`/pizza/${pizza.id}`)}>Ver más</button>
+              <button className='button2' onClick={() => addToCart(pizza)}>Añadir al carrito</button>
+            </div>
           </div>
         ))}
       </div>

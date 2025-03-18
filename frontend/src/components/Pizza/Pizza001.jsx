@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Pizza.css'
+import { CartContext } from '../../context/CartContext'
 
 const Pizza = () => {
   const { id } = useParams()
   const [info, setInfo] = useState(null)
+  const { addToCart } = useContext(CartContext)
 
   const getApi = async () => {
     try {
@@ -26,16 +28,18 @@ const Pizza = () => {
   }
 
   return (
-    <div className='card'>
-      <img src={info.img} alt={info.name} />
-      <h2>{info.name}</h2>
-      <p>{info.desc}</p>
-      <div className='pizzaprice'>
-        <h3>Prezzo:</h3><h3> ${info.price}</h3>
+    <div className='card-container'>
+      <div className='cardpizza'>
+        <img src={info.img} alt={info.name} />
+        <h2>{info.name.charAt(0).toUpperCase() + info.name.slice(1)}</h2>
+        <p>{info.desc}</p>
+        <div className='pizzaprice'>
+          <h3>Prezzo:</h3><h3> ${info.price}</h3>
+        </div>
+        <h3>Ingredienti:</h3>
+        <p>{info.ingredients.join(', ')}</p>
+        <button className='button2' onClick={() => addToCart(info)}>Añadir al carrito</button>
       </div>
-      <h3>Ingredienti:</h3>
-      <p>{info.ingredients.join(', ')}</p>
-      <button className='button2'>Añadir al carrito</button>
     </div>
   )
 }
