@@ -1,59 +1,64 @@
 import './form.css'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { UserContext } from '../../context/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 const FormLogin = () => {
-  const [login, setLogin] = useState({
+  const { login } = useContext(UserContext)
+  const navigate = useNavigate()
 
-    nombre: '',
+  const [loginData, setLoginData] = useState({
+    email: '',
     password: ''
   })
 
   const [error, setError] = useState('')
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleChange = (e) => {
-    setLogin({ ...login, [e.target.name]: e.target.value })
+    setLoginData({ ...loginData, [e.target.name]: e.target.value })
   }
 
-  const handleResult = () => {
-    setIsSubmitted(true)
-
-    if (!login.nombre || !login.password) {
+  const handleLogin = async () => {
+    if (!loginData.email || !loginData.password) {
       setError('Debes ingresar todos los datos')
       return
     }
 
-    if (login.password.length < 6) {
+    if (loginData.password.length < 6) {
       setError('La contraseña debe tener al menos 6 caracteres')
       return
     }
 
-    setError('')
+    try {
+      await login(loginData.email, loginData.password)
+      navigate('/')
+    } catch (error) {
+      setError('Email o contraseña incorrectos')
+    }
   }
 
   return (
-
     <div className='blockForm'>
       <div className='formLogin'>
         <h2>Iniciar sesión:</h2>
-        {isSubmitted && (error ? <p className='error'>{error}</p> : <p className='success'>Los datos son correctos</p>)}
+        {error && <p className='error'>{error}</p>}
         <input
           type='email'
           placeholder='Email'
-          value={login.nombre}
+          value={loginData.email}
           onChange={handleChange}
-          name='nombre'
+          name='email'
         />
 
         <input
           type='password'
           placeholder='Contraseña'
-          value={login.password}
+          value={loginData.password}
           onChange={handleChange}
           name='password'
         />
 
-        <button className='btnform' onClick={handleResult}>Acceder</button>
+        <button className='btnform' onClick={handleLogin}>Acceder</button>
       </div>
     </div>
   )

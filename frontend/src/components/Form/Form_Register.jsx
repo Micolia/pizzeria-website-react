@@ -1,66 +1,59 @@
 import './form.css'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { UserContext } from '../../context/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 const FormRegister = () => {
-  /* ALTERNATIVA:
-    const [nombre, setNombre] = useState ('')
-    const [password, setPassword] = useState ('')
-    const [passwordConfirmation, setPawwordconfirmation] = useState ('')
-    <input
-    type= 'text'
-    placeholder= 'Email'
-    value={nombre}
-    onChange={(e) => setNombre (e.target.value)}
-    />
-    */
+  const { register } = useContext(UserContext)
+  const navigate = useNavigate() // reindirizza utente
 
   const [registration, setRegistration] = useState({
-
-    nombre: '',
+    email: '',
     password: '',
     passwordConfirmation: ''
   })
 
-  const [errorReg, setErrorReg] = useState('')
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
-  // comuncia che sono 3 inputs -- (e)vento
   const handleChange = (e) => {
-    setRegistration({ ...registration, [e.target.name]: e.target.value }) // ... fa una copia del valore precedente e la salva nella lista
+    setRegistration({ ...registration, [e.target.name]: e.target.value })
   }
 
-  const handleResult = () => {
-    setIsSubmitted(true)
-
-    if (!registration.nombre || !registration.password || !registration.passwordConfirmation) {
-      setErrorReg('Debes ingresar todos los datos')
+  const handleRegister = async () => {
+    if (!registration.email || !registration.password || !registration.passwordConfirmation) {
+      setError('Debes ingresar todos los datos')
       return
     }
 
     if (registration.password.length < 6) {
-      setErrorReg('La contraseña debe tener al menos 6 caracteres')
+      setError('La contraseña debe tener al menos 6 caracteres')
       return
     }
 
     if (registration.password !== registration.passwordConfirmation) {
-      setErrorReg('Las contraseñas no coinciden')
+      setError('Las contraseñas no coinciden')
       return
     }
 
-    setErrorReg('')
+    try {
+      await register(registration.email, registration.password)
+      navigate('/') // ✅ Reindirizziamo l'utente alla home
+    } catch (error) {
+      setError('Error en el registro, intenta con otro email')
+    }
   }
 
   return (
     <div className='blockForm'>
       <div className='formRegistration'>
         <h2>Crear cuenta:</h2>
-        {isSubmitted && (errorReg ? <p className='error'>{errorReg}</p> : <p className='success'>Los datos son correctos</p>)}
+        {error && <p className='error'>{error}</p>}
         <input
           type='email'
           placeholder='Email'
-          value={registration.nombre}
+          value={registration.email}
           onChange={handleChange}
-          name='nombre'
+          name='email'
         />
 
         <input
@@ -79,10 +72,9 @@ const FormRegister = () => {
           name='passwordConfirmation'
         />
 
-        <button className='btnform' onClick={handleResult}>Registrate</button>
+        <button className='btnform' onClick={handleRegister}>Registrate</button>
       </div>
     </div>
-
   )
 }
 
