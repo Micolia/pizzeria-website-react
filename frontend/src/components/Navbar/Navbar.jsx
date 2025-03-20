@@ -1,5 +1,5 @@
 import './navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { UserContext } from '../../context/UserContext'
@@ -7,7 +7,13 @@ import { UserContext } from '../../context/UserContext'
 const Navbar = () => {
   const { cart } = useContext(CartContext)
   const { token, logout } = useContext(UserContext)
+  const navigate = useNavigate()
   const total = cart.reduce((sum, item) => sum + item.price * item.count, 0)
+
+  const handleLogout = () => { // esegui logout e reindirizza
+    logout()
+    navigate('/login')
+  }
 
   return (
     <div className='navigazione'>
@@ -17,7 +23,7 @@ const Navbar = () => {
           ? (
             <>
               <Link to='/profile'><button className='btnempty'>Profile</button></Link>
-              <button className='btnempty' onClick={logout}>Logout</button>
+              <button className='btnempty' onClick={handleLogout}>Logout</button>
             </>
             )
           : (
