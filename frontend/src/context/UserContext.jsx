@@ -54,6 +54,32 @@ const UserProvider = ({ children }) => {
     }
   }
 
+  // profilo utente loggato
+
+  const getProfile = async () => {
+    if (!token) return // se non c'è token logout
+
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/me', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`, // manda token in header
+          'Content-Type': 'application/json'
+        }
+      })
+
+      if (!res.ok) {
+        throw new Error('Errore nel recupero del profilo')
+      }
+
+      const data = await res.json()
+      setEmail(data.email) // aggiorna email con info da API
+      console.log('Profilo utente:', data)
+    } catch (error) {
+      console.error('Errore durante il recupero del profilo:', error.message)
+    }
+  }
+
   // logout - rimuovere email e token
   const logout = () => {
     setToken(null)
@@ -62,7 +88,7 @@ const UserProvider = ({ children }) => {
   }
 
   return (
-    <UserContext.Provider value={{ token, email, login, register, logout }}>
+    <UserContext.Provider value={{ token, email, login, register, logout, getProfile }}>
       {children}
     </UserContext.Provider>
   )

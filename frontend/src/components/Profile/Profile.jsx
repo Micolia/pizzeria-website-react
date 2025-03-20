@@ -1,15 +1,27 @@
 import './profile.css'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 
 const Profile = () => {
-  const { email, logout } = useContext(UserContext)
+  const { email, logout, token, getProfile } = useContext(UserContext)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login') // utente non autenticato va a login
+    } else {
+      getProfile()
+    }
+  }, [token, navigate, getProfile])
 
   const handleLogout = () => {
     logout()
     navigate('/login') // reindirizza a login dopo logout
+  }
+
+  if (!email) {
+    return <p>Loading...</p> // attesa che carichi dati email
   }
 
   return (
