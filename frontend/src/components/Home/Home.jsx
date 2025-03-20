@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useContext } from 'react'
 import Header from '../Header/Header'
-import './Home.css'
+import './home.css'
 import { CartContext } from '../../context/CartContext'
 import { useNavigate } from 'react-router-dom'
 

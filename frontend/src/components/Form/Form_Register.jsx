@@ -1,4 +1,4 @@
-import './Form.css'
+import './form.css'
 import { useState } from 'react'
 
 const FormRegister = () => {

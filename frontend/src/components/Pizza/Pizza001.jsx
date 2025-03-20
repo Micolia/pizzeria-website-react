@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import './Pizza.css'
+import './pizza.css'
 import { CartContext } from '../../context/CartContext'
 
 const Pizza = () => {

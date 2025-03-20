@@ -17,7 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 // import Cart from './components/Cart/Cart'
 // import Pizza from './components/Pizza/Pizza'
 
-import './App.css'
+import './app.css'
 
 const App = () => {
   return (
