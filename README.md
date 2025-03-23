@@ -26,6 +26,7 @@ The website has the following sections and pages:
 - Each item in the cart displays the product details (image, name, price), along with buttons to increase or decrease the quantity of the item.
 - The total section at the bottom of the cart dynamically calculates and displays the total price based on the prices and quantities of the items in the cart.
 - If users are logged out they cannot see the button to pay.
+- Clicking the payment button will complete the checkout and show a success message.
 
 5) **Forms - Login & Register Page**:
 - Contains two forms, one for creating an account and one for logging in.
@@ -33,6 +34,7 @@ The website has the following sections and pages:
    - If the user does not fill in all required fields.
    - If the password entered is less than 6 characters long.
    - In the registration form, if the password and confirm password fields do not match.
+- Use "**test@test.com**" and "**123123**" to test the Login.
 
 6) **Footer**
 
