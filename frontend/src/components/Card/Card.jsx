@@ -1,6 +1,6 @@
 // VERSIONE 2
 
-import './Card.css'
+import './card.css'
 
 const Card = ({ pizza }) => {
   const { desc, id, img, ingredients, name, price } = pizza // estraggo valori da data
